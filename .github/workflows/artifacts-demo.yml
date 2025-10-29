@@ -1,0 +1,64 @@
+name: Artifacts and Caching Demo
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      
+      - name: Create build artifacts
+        run: |
+          mkdir -p build
+          echo "Build timestamp: $(date)" > build/info.txt
+          echo "Commit SHA: ${{ github.sha }}" >> build/info.txt
+          echo "console.log('Hello from build');" > build/app.js
+      
+      - name: Upload build artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: build-files
+          path: build/
+          retention-days: 5
+  
+  test:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download build artifacts
+        uses: actions/download-artifact@v4
+        with:
+          name: build-files
+      
+      - name: Display artifact contents
+        run: |
+          ls -la
+          cat info.txt
+          cat app.js
+  
+  cache-demo:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      
+      - name: Cache node modules
+        uses: actions/cache@v4
+        id: npm-cache
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+      
+      - name: Install dependencies
+        if: steps.npm-cache.outputs.cache-hit != 'true'
+        run: |
+          echo "Cache miss - installing dependencies"
+          npm install
+      
+      - name: Use cached dependencies
+        if: steps.npm-cache.outputs.cache-hit == 'true'
+        run: echo "Cache hit - using cached dependencies"
