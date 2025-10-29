@@ -1,5 +1,5 @@
 {
-  "name": "danutasemeniuc/my-github-actions-package",
+  "name": "danutasemeniuc-github-actions-lab-package",
   "version": "1.0.0",
   "description": "A demo package for GitHub Actions lab",
   "main": "index.js",
@@ -8,9 +8,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/USERNAME/github-actions-lab.git"
+    "url": "git+https://github.com/danutasemeniuc/github-actions-lab.git"
   },
   "keywords": ["demo", "github-actions"],
-  "author": "Your Name",
+  "author": "Danuta Semeniuc",
   "license": "MIT"
 }
