@@ -1,5 +1,5 @@
 {
-  "name": "@danutasemeniuc/my-github-actions-package",
+  "name": "danutasemeniuc/my-github-actions-package",
   "version": "1.0.0",
   "description": "A demo package for GitHub Actions lab",
   "main": "index.js",
