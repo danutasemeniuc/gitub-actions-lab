@@ -1,16 +1,13 @@
 {
-  "name": "danutasemeniuc-github-actions-lab",
+  "name": "@danutasemeniuc/github-actions-lab",
   "version": "1.0.2",
-  "description": "A demo package for GitHub Actions lab",
+  "description": "Proiect demonstrativ publicat pe GitHub Packages",
   "main": "index.js",
-  "scripts": {
-    "test": "echo \"No tests specified\""
-  },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/danutasemeniuc/github-actions-lab.git"
+    "url": "https://github.com/danutasemeniuc/github-actions-lab.git"
   },
-  "keywords": ["demo", "github-actions", "lab"],
-  "author": "Danuta Semeniuc",
-  "license": "MIT"
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
+  }
 }
