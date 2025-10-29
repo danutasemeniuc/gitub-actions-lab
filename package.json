@@ -1,6 +1,6 @@
 {
-  "name": "danutasemeniuc-github-actions-lab-package",
-  "version": "1.0.0",
+  "name": "danutasemeniuc-github-actions-lab",
+  "version": "1.0.2",
   "description": "A demo package for GitHub Actions lab",
   "main": "index.js",
   "scripts": {
@@ -10,7 +10,7 @@
     "type": "git",
     "url": "git+https://github.com/danutasemeniuc/github-actions-lab.git"
   },
-  "keywords": ["demo", "github-actions"],
+  "keywords": ["demo", "github-actions", "lab"],
   "author": "Danuta Semeniuc",
   "license": "MIT"
 }
